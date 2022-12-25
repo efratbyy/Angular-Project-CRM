@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "crm-efrat": {
+      "hosting": {
+        "crm": [
+          "crm-efrat"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "crm-efrat"
+  }
+}

@@ -1,0 +1,19 @@
+<ng-container *ngIf="router.url === '/contacts' || router.url === '/customers' || router.url === '/add-customer'" >
+    <app-navbar></app-navbar>
+    <div class="p-0 m-0">
+      <div class="row m-0">
+          <div class="col-2" style="background-color: rgb(22, 9, 81);">
+            <app-side-navbar ></app-side-navbar>
+          </div>
+          <div class="col-10">
+                <router-outlet></router-outlet>
+          </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</ng-container> 
+
+
+ <ng-container *ngIf="router.url !== '/customers' && router.url !== '/contacts' && router.url !== '/add-customer'">
+    <router-outlet></router-outlet>
+</ng-container>

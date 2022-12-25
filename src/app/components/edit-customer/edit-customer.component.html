@@ -1,0 +1,131 @@
+<div class="container"> 
+  <form #updateCustomer="ngForm" (ngSubmit)="updateTheCustomer()">
+    <h3 class="mt-3"><i class="fa-solid fa-pen pt-3 pb-3"></i> Edit Customer</h3>
+
+    <span class="ng-star-inserted text-danger"> * </span>
+    <div class="form-floating required mb-3">
+      <input
+        type="text"              
+        name="firstName"
+        class="form-control"
+        id="floatingInput"
+        placeholder="Enter first name"
+        [(ngModel)]="customer.firstName"              
+        required            
+        minlength="2"
+        #firstName="ngModel"
+      />
+      <small 
+      class="text-danger"
+      *ngIf="firstName.invalid && (firstName.touched || firstName.dirty)"
+      >Please provide a valid First Name.
+      </small>
+      <label for="floatingInput" class="control-label">First Name</label>
+    </div>
+
+    <span class="ng-star-inserted text-danger"> * </span>
+    <div class="form-floating mb-3">
+      <input
+        type="text"              
+        name="lastName"
+        class="form-control"
+        id="form-floating"
+        placeholder="Enter Last Name"
+        [(ngModel)]="customer.lastName"              
+        required                
+        minlength="2"
+        #lastName="ngModel"
+        />
+        <small 
+        class="text-danger"
+        *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)"
+        >
+          Please provide a valid Last Name.
+        </small>
+        <label for="floatingInput" class="control-label">Last Name</label>
+      </div>
+
+    <span class="ng-star-inserted text-danger"> * </span>
+    <div class="form-floating mb-3">
+        <input
+          type="tel"                
+          name="phone"
+          class="form-control"
+          id="floatingInput"
+          placeholder="Enter phone"
+          [(ngModel)]="customer.phone"                
+          required            
+          minlength="9"
+          #phone="ngModel"
+          />
+          <small 
+          class="text-danger"
+          *ngIf="phone.invalid && (phone.touched || phone.dirty)"
+          >
+            Please provide a valid Phone.
+          </small>
+          <label for="floatingInput" class="control-label">Phone</label>
+      </div>
+
+    <span class="ng-star-inserted text-danger"> * </span>
+    <div class="form-floating mb-3">
+      <input
+        type="email"                
+        name="email"
+        class="form-control"
+        id="floatingInput"
+        placeholder="name@example.com"
+        [(ngModel)]="customer.email"                
+        required
+        email            
+        #email="ngModel"
+        />
+        <small 
+        class="text-danger"
+        *ngIf="email.invalid && (email.touched || email.dirty)"
+        >Please provide a valid Email.
+        </small>
+        <label for="floatingInput" class="control-label">Email</label>
+    </div>
+
+
+    <div class="form-floating mb-3">
+      <input
+        type="text"              
+        class="form-control"
+        name="address"
+        id="floatingInput"
+        placeholder="Enter Address"
+        [(ngModel)]="customer.address" 
+        #address="ngModel"
+        />
+        <label for="floatingInput">Address</label>
+      </div>
+
+
+    <div class="form-floating mb-3">              
+      <textarea 
+      class="form-control"
+      name="comments"
+      placeholder="Leave a comment here" 
+      id="floatingTextarea" 
+      [(ngModel)]="customer.comments" 
+      #comments="ngModel"             
+      style="height: 100px"></textarea>
+      <label for="floatingTextarea">Comments</label>
+    </div>
+
+    
+        <button 
+          type="submit" 
+          class="btn btn-success m-3"
+          [disabled]="updateCustomer.invalid"
+        >Update Customer</button>
+      
+        <button 
+          type="button" 
+          class="btn btn-success m-3"
+          (click)="closeModal2()"
+        >Cancel</button>
+  </form>
+</div>

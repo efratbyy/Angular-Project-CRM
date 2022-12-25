@@ -1,0 +1,52 @@
+<div style="background-image: url('assets/pictures/edu-lauton-TyQ-0lPp6e4-unsplash.jpg'); height: 100vh; background-repeat: no-repeat; background-size: cover;">
+  <div class="container pt-5 col-6 text-center">
+    <form #registerForm="ngForm" (ngSubmit)="register()">
+      <h1 class="display-3 text-center">REGISTER</h1>
+      <div class="form-floating mb-3">
+        <input 
+        type="email"
+        name="email"
+        class="form-control" 
+        id="floatingInput" 
+        placeholder="name@example.com"
+        [(ngModel)]="user.email"
+        required
+        email
+        #email="ngModel"
+        />
+        <small 
+        *ngIf="email.invalid && (email.touched || email.dirty)"
+        class="text-danger"
+        >Wrong email format</small>
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input 
+        type="password"
+        name="password"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Password"
+        [(ngModel)]="user.password"
+        required
+        minlength="8"
+        #password="ngModel"
+        >
+        <small 
+        class="text-danger"
+        *ngIf="password.invalid && (password.touched || password.dirty)"
+        >Password length should be at least 8 characters</small>
+        <label for="floatingPassword">Password</label>
+      </div>
+      <button 
+      type="submit" 
+      class="btn btn-secondary w-100 mt-3"
+      [disabled]="registerForm.invalid"
+      >Register</button>
+    </form> 
+    <div class="mt-3 text-center">  
+      <a routerLink="/login">Already have user? Login</a>
+    </div>   
+  </div>
+</div>
+  

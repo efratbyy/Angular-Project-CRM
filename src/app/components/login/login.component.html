@@ -1,0 +1,53 @@
+<div style="background-image: url('assets/pictures/22ian-schneider-TamMbr4okv4-unsplash.jpeg'); height: 100vh; background-repeat: no-repeat; background-size: cover;">
+    <div class="container pt-5 col-6 text-centern bg-imag" >
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <h1>COMPANY <fa-icon class='faUsers fa-1x; icon-green' style="color:rgb(122, 98, 210)" [icon]="faUsers"></fa-icon> CRM</h1>
+            <h5>Login with your account</h5>
+            <div class="form-floating mb-3">
+                <input 
+                type="email" 
+                name="email" 
+                class="form-control" 
+                id="floatingInput" 
+                placeholder="name@example.com" 
+                [(ngModel)]="user.email"
+                required
+                email
+                #email="ngModel"
+                />
+                <small 
+                class="text-danger" 
+                *ngIf="email.invalid && (email.touched || email.dirty)"
+                >Wrong email format</small>
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+                <input 
+                type="password" 
+                name="password" 
+                class="form-control" 
+                id="floatingPassword" 
+                placeholder="Password"
+                [(ngModel)]="user.password"
+                required
+                minlength="8"
+                #password="ngModel"
+                />
+                <small 
+                class="text-danger" 
+                *ngIf="password.invalid && (password.touched || password.dirty)"
+                >Password length should be at least 8 characters</small>
+                <label for="floatingPassword">Password</label>
+            </div>
+            <button 
+            type="submit" 
+            class="btn btn-success w-100 mt-3" 
+            [disabled]="loginForm.invalid"
+            >Login</button>
+        </form>
+            <button class="btn btn-outline-primary w-100 mt-3" (click)="loginWithGoogle()"><i class="fa-brands fa-google"></i> Login with Google</button>
+            <div class="mt-3 text-center">
+                <a routerLink="/register">New user? Register now</a>
+            </div>
+    </div>
+</div>
